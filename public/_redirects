@@ -1,0 +1,2 @@
+# Cloudflare Pages Redirects & SPA Fallback
+/projects/*  /projects/view.html  200
