@@ -14,7 +14,7 @@ import {
   Hammer,
   HardDriveDownload,
 } from 'lucide-react';
-import { cn } from '@/lib/utils';
+import { cn, stripBasePath } from '@/lib/utils';
 import { useMaterialStore } from '@/lib/stores/useMaterialStore';
 import { useProductStore } from '@/lib/stores/useProductStore';
 import { useBomStore } from '@/lib/stores/useBomStore';
@@ -37,7 +37,7 @@ const navItems: NavItem[] = [
 ];
 
 export function Sidebar() {
-  const pathname = usePathname();
+  const pathname = stripBasePath(usePathname());
 
   const handleResetData = () => {
     if (confirm('Bạn có chắc muốn khôi phục toàn bộ dữ liệu mẫu (Mock data)?')) {

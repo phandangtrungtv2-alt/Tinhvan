@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import { Database, ShieldCheck, ShoppingCart, HardDriveDownload } from 'lucide-react';
 import Link from 'next/link';
 import { getLastBackupTime } from '@/lib/backup-restore';
+import { stripBasePath } from '@/lib/utils';
 
 const pageTitles: Record<string, { title: string; subtitle: string }> = {
   '/': { title: 'Bàn làm việc', subtitle: 'Tổng quan hệ thống bóc tách định mức' },
@@ -20,7 +21,7 @@ const pageTitles: Record<string, { title: string; subtitle: string }> = {
 };
 
 export function Header() {
-  const pathname = usePathname();
+  const pathname = stripBasePath(usePathname());
   const [lastBackup, setLastBackup] = useState<string | null>(null);
 
   useEffect(() => {
